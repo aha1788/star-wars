@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+
+// importing characters' photos.
 import img1 from "../img/1.jpg";
 import img2 from "../img/2.jpg";
 import img3 from "../img/3.jpg";
@@ -9,7 +11,7 @@ import img14 from "../img/14.jpg";
 import img20 from "../img/20.jpg";
 import img22 from "../img/22.jpg";
 
-// hardcode a list of names tied to their Star Wars api ids)
+// A hardcoded list of characters names tied to their Star-Wars api ids)
 let SW_characters = [
   { id: 1, name: "Luke Skywalker", img: img1 },
   { id: 2, name: "C-3PO", img: img2 },
@@ -21,7 +23,10 @@ let SW_characters = [
   { id: 22, name: "Boba Fett", img: img22 },
 ];
 
-export default class SWC_List extends Component {
+/* This component is rendering a list of Star-Wars characters, 
+and allow the user to select one of them by reterning its id to the root component (APP) */
+
+export default class SWCList extends Component {
   render() {
     return (
       <div className="swc-list">
