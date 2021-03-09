@@ -17,6 +17,7 @@ export default class SWCInfo extends Component {
 
   // the function is fetching character's information form the backend-api
   //http://localhost:5000/api-people/${this.props.id}/
+  //https://ahmad-api-swapi.herokuapp.com/api-people/${this.props.id}/
 
   componentDidMount() {
     fetch(`http://localhost:5000/api-people/${this.props.id}/`)
@@ -88,22 +89,18 @@ export default class SWCInfo extends Component {
               </li>
               <li className="info-gr">
                 {"Films: "}
-
-                <ol>
+                <div className="films-container">
                   {Object.entries(this.state.data.films).map((el) => {
                     return (
-                      <div key={el[0]}>
-                        <li> </li>
-                        <ul>
-                          <li>{"Title: " + el[1].title}</li>
-                          <li>{"Director: " + el[1].director}</li>
-                          <li>{"Producers: " + el[1].producer}</li>
-                          <li>{"Release Date: " + el[1].release_date}</li>
-                        </ul>
+                      <div className="film" key={el[0]}>
+                        <h4 className="c-name">{el[1].title}</h4>
+                        <p>{"Director: " + el[1].director}</p>
+                        <p>{"Producers: " + el[1].producer}</p>
+                        <p>{"Release Date: " + el[1].release_date}</p>
                       </div>
                     );
                   })}
-                </ol>
+                </div>
               </li>
             </ul>
             <Link to="/" className="show-btn">
